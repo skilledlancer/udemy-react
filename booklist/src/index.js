@@ -16,16 +16,17 @@ const secondBook = {
 }
 const BookList = () => {
   return (<section className="booklist">
-    <Book title={firstBook.title} author={firstBook.author} img={firstBook.img} />
+    <Book title={firstBook.title} author={firstBook.author} img={firstBook.img} ><p>lorem ipsum</p><button>click here</button></Book>
     <Book title={secondBook.title} author={secondBook.author} img={secondBook.img} />
   </section>);
 }
 
-const Book = ({title, author, img}) => {
+const Book = ({title, author, img, children}) => {
   return (<article className="book">
     <img src={img} alt={title}/>
     <h2>{title}</h2>
     <h4>{author}</h4>
+    {children}
   </article>);
 }
 
