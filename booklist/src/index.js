@@ -7,32 +7,34 @@ const books = [
     {
         title:"Spare",
         author:"Prince Harry The Duke of Sussex",
-        img:'https://images-na.ssl-images-amazon.com/images/I/91Szm8FpdfL._AC_UL900_SR900,600_.jpg'
+        img:'https://images-na.ssl-images-amazon.com/images/I/91Szm8FpdfL._AC_UL900_SR900,600_.jpg',
+        id: 1,
     },
     {
         title:"Atomic Habits",
         author:"James Clear",
-        img:'https://images-na.ssl-images-amazon.com/images/I/81wgcld4wxL._AC_UL900_SR900,600_.jpg'
+        img:'https://images-na.ssl-images-amazon.com/images/I/81wgcld4wxL._AC_UL900_SR900,600_.jpg',
+        id: 2,
     }
 ]
 const BookList = () => {
   return (
   <section className="booklist">
     {books.map((book) => {
-        const {img, title, author} = book
-        return <Book img={img} title={title} author={author} />
+        
+        return <Book {...book} key={book.id} />
         })
     }
   </section>
   );
 }
 
-const Book = ({title, author, img, children}) => {
+const Book = (props) => {
+  const {img, title, author} = props
   return (<article className="book">
     <img src={img} alt={title}/>
     <h2>{title}</h2>
     <h4>{author}</h4>
-    {children}
   </article>);
 }
 
